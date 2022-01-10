@@ -19,9 +19,6 @@ host_network: true
 hassio_api: true
 hassio_role: default
 auth_api: true
-privileged:
-- NET_ADMIN
-- NET_RAW
 full_access: true
 options: {}
 schema: {}
