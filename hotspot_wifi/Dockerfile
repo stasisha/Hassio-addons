@@ -12,9 +12,9 @@ RUN apt-get install -y git iptables iproute2 iw wpasupplicant net-tools
 RUN apt-get install -y hostapd qrencode dnsmasq lighttpd vnstat
 RUN apt-get install -y dhcpcd5
 RUN apt-get install -y php7.3-cgi
+RUN apt-get install -y netfilter-persistent
 
 # internet access
-RUN apt-get install -y netfilter-persistent
 RUN iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
 RUN iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 RUN iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
