@@ -14,13 +14,6 @@ RUN apt-get install -y dhcpcd5
 RUN apt-get install -y php7.3-cgi
 RUN apt-get install -y netfilter-persistent
 
-# internet access
-RUN iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
-RUN iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-RUN iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-RUN netfilter-persistent save
-# end internet access
-
 RUN rm -Rf /var/www/html
 RUN git clone --branch 2.6.2 https://github.com/RaspAP/raspap-webgui /var/www/html 
  
@@ -54,3 +47,9 @@ LABEL \
     org.label-schema.vcs-url="https://github.com/ArminasTV/Hassio-addons/tree/master/hotspot_wifi" \
     org.label-schema.vendor="ArminasTV"
 
+# internet access
+RUN apt-get install -y netfilter-persistent
+COPY /iptables.sh /usr/local/bin/iptables.sh
+RUN chmod +x /usr/local/bin/iptables.sh
+CMD [ "/usr/local/bin/iptables.sh" ]
+# end internet access
