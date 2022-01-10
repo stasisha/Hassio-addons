@@ -5,4 +5,4 @@ iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACC
 iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 netfilter-persistent save
 
-/bin/bash
+/init
