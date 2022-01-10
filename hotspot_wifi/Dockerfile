@@ -13,6 +13,14 @@ RUN apt-get install -y hostapd qrencode dnsmasq lighttpd vnstat
 RUN apt-get install -y dhcpcd5
 RUN apt-get install -y php7.3-cgi
 
+# internet access
+RUN apt-get install -y netfilter-persistent
+RUN iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
+RUN iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+RUN iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+RUN netfilter-persistent save
+# end internet access
+
 RUN rm -Rf /var/www/html
 RUN git clone --branch 2.6.2 https://github.com/RaspAP/raspap-webgui /var/www/html 
  
