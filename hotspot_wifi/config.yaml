@@ -22,3 +22,5 @@ auth_api: true
 full_access: true
 options: {}
 schema: {}
+privileged:
+- NET_ADMIN
