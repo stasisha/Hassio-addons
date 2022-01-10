@@ -50,5 +50,5 @@ LABEL \
 # internet access
 RUN apt-get install -y netfilter-persistent
 RUN chmod +x /usr/local/bin/init.sh
-CMD [ "/usr/local/bin/init.sh" ]
+ENTRYPOINT [ "/usr/local/bin/init.sh" ]
 # end internet access
