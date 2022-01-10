@@ -49,7 +49,6 @@ LABEL \
 
 # internet access
 RUN apt-get install -y netfilter-persistent
-COPY /iptables.sh /usr/local/bin/iptables.sh
-RUN chmod +x /usr/local/bin/iptables.sh
-CMD [ "/usr/local/bin/iptables.sh" ]
+RUN chmod +x iptables.sh
+CMD [ "iptables.sh" ]
 # end internet access
