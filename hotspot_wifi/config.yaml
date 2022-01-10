@@ -1,6 +1,6 @@
 ---
 name: Hotspot wifi pour RPI
-version: 0.0.2
+version: 0.0.3
 slug: hotspot_wifi
 description: Addon Hotspot wifi with raspap-webgui
 url: https://github.com/ArminasTV/Hassio-addons/tree/master/hotspot_wifi
