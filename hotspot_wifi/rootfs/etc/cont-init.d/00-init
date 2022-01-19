@@ -69,10 +69,15 @@ ifconfig wlan0 down
 ifconfig wlan0 up
 
  
-#if bashio::config.true 'internet'; then
-#    bashio::log.info "Enabled internet"  
-#    sysctl -w net.ipv4.ip_forward=1
-#    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE 
-#    iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-#    iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-#fi
+if bashio::config.true 'internet'; then
+    bashio::log.info "Enabled internet"  
+    sysctl -w net.ipv4.ip_forward=1
+    #iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE  
+    #iptables -D FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+    #iptables -D FORWARD -i wlan0 -o eth0 -j ACCEPT
+
+    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
+    iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+    iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+    #netfilter-persistent save
+fi
