@@ -8,4 +8,4 @@
 #lighttpd-enable-mod fastcgi-php    
 
 #bashio::log.info "Starting lighttpd ..." 
-#exec lighttpd -f /etc/lighttpd/lighttpd.conf
+exec lighttpd -f /etc/lighttpd/lighttpd.conf
