@@ -14,15 +14,6 @@ ports:
   80/tcp: 80
 ports_description:
   80/tcp: Web interface
-  
-  "options": {
-    "log_level": "info",
-    "avahi_interfaces": "",
-    "avahi_hostname": "",
-    "avahi_domainname": "local",
-    "airplay_name": "Hass.io",
-    "enable_ipv6": false
-  },
 options:
 - internet: true
 schema:
