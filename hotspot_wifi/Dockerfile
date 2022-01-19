@@ -28,7 +28,7 @@ COPY /rootfs /
 # TODO wpa_supplicant -Dnl80211 -i wlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf
 
 RUN cp /var/www/html/config/50-raspap-router.conf /etc/lighttpd/conf-available
-RUN ln -s /etc/lighttpd/conf-available/50-raspap-router.conf /etc/lighttpd/conf-enabled/50-raspap-router.conf
+#RUN ln -s /etc/lighttpd/conf-available/50-raspap-router.conf /etc/lighttpd/conf-enabled/50-raspap-router.conf
 
 # Build arguments
 ARG BUILD_ARCH
