@@ -1,9 +1,9 @@
 ---
 name: Hotspot wifi pour RPI
-version: 0.0.8
+version: 0.0.9
 slug: hotspot_wifi
 description: Addon Hotspot wifi with raspap-webgui
-url: https://github.com/ArminasTV/Hassio-addons/tree/master/hotspot_wifi
+url: https://github.com/stasisha/Hassio-addons/tree/master/hotspot_wifi
 webui: "[PROTO:ssl]://[HOST]:[PORT:80]"
 startup: application
 arch:
@@ -14,6 +14,19 @@ ports:
   80/tcp: 80
 ports_description:
   80/tcp: Web interface
+  
+  "options": {
+    "log_level": "info",
+    "avahi_interfaces": "",
+    "avahi_hostname": "",
+    "avahi_domainname": "local",
+    "airplay_name": "Hass.io",
+    "enable_ipv6": false
+  },
+options:
+- internet: true
+schema:
+- internet: "bool
 boot: manual
 host_network: true
 hassio_api: true
