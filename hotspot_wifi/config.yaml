@@ -15,9 +15,9 @@ ports:
 ports_description:
   80/tcp: Web interface
 options:
-- internet: true
+ internet: true
 schema:
-- internet: "bool"
+ internet: "bool"
 boot: manual
 host_network: true
 hassio_api: true
