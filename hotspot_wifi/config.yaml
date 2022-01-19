@@ -17,7 +17,7 @@ ports_description:
 options:
 - internet: true
 schema:
-- internet: "bool
+- internet: bool
 boot: manual
 host_network: true
 hassio_api: true
