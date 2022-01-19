@@ -22,7 +22,7 @@ RUN apt-get install -y procps
 #RUN rm -Rf /var/www/html
 #RUN git clone --branch 2.6.2 https://github.com/RaspAP/raspap-webgui /var/www/html 
 
-curl -sL https://install.raspap.com | bash -s -- --yes --adblock 0 --openvpn 0
+RUN curl -sL https://install.raspap.com | bash -s -- --yes --adblock 0 --openvpn 0
  
 COPY /rootfs / 
 # TODO wpa_supplicant -Dnl80211 -i wlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf
