@@ -46,9 +46,4 @@ LABEL \
     org.label-schema.vcs-ref=${BUILD_REF} \
     org.label-schema.vcs-url="https://github.com/ArminasTV/Hassio-addons/tree/master/hotspot_wifi" \
     org.label-schema.vendor="ArminasTV"
-
-# internet access
-RUN apt-get install -y netfilter-persistent
-RUN chmod +x /usr/local/bin/init.sh
-ENTRYPOINT [ "/usr/local/bin/init.sh" ]
-# end internet access
+    
