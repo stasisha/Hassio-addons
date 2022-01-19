@@ -13,9 +13,16 @@ RUN apt-get install -y hostapd qrencode dnsmasq lighttpd vnstat
 RUN apt-get install -y dhcpcd5
 RUN apt-get install -y php7.3-cgi
 RUN apt-get install -y netfilter-persistent
+RUN apt-get install -y wget
+RUN apt-get install -y sudo
+RUN apt-get install -y curl
+RUN apt-get install -y systemd
+RUN apt-get install -y procps
 
-RUN rm -Rf /var/www/html
-RUN git clone --branch 2.6.2 https://github.com/RaspAP/raspap-webgui /var/www/html 
+#RUN rm -Rf /var/www/html
+#RUN git clone --branch 2.6.2 https://github.com/RaspAP/raspap-webgui /var/www/html 
+
+RUN curl -sL https://install.raspap.com | bash -s -- --yes
  
 COPY /rootfs / 
 # TODO wpa_supplicant -Dnl80211 -i wlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf
