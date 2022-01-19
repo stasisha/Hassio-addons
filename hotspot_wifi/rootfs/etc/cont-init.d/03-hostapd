@@ -4,10 +4,10 @@
 # Runs the hostapd 
 # ==============================================================================
 
-#DIR="/config/hotspot_wifi"
+DIR="/config/hotspot_wifi"
 # DIR_RASPAP="${DIR}/raspap"
-#CONFIG="${DIR}/hostapd/hostapd.conf" 
+CONFIG="${DIR}/hostapd/hostapd.conf" 
 
 # Run dnsmasq
-#bashio::log.info "Starting hostapd..."
-#hostapd -d -B -i wlan0 ${CONFIG} -f /tmp/hostapd.log
+bashio::log.info "Starting hostapd..."
+hostapd -d -B -i wlan0 ${CONFIG} -f /tmp/hostapd.log
