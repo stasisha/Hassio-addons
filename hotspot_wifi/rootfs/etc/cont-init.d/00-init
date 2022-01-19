@@ -47,26 +47,26 @@ fi
 mv /etc/config.php /var/www/html/includes/
 mv /var/www/html/app/icons/* /var/www/html 
 
-mkdir /run/lighttpd/
-chown -R www-data:www-data /var/www/html/
-chown -R www-data:www-data /run/lighttpd/ 
-chown -R www-data:www-data /var/log/lighttpd/
-chown -R www-data:www-data "${DIR}"  || bashio::exit.nok "Failed chown -R www-data:www-data ${DIR_RASPAP}"
+#mkdir /run/lighttpd/
+#chown -R www-data:www-data /var/www/html/
+#chown -R www-data:www-data /run/lighttpd/ 
+#chown -R www-data:www-data /var/log/lighttpd/
+#chown -R www-data:www-data "${DIR}"  || bashio::exit.nok "Failed chown -R www-data:www-data ${DIR_RASPAP}"
 
-echo '' > /tmp/hostapd.log
-echo '' > /tmp/dnsmasq.log
-chown -R www-data:www-data /tmp/ 
-chown -R www-data:www-data /var/tmp/ 
+#echo '' > /tmp/hostapd.log
+#echo '' > /tmp/dnsmasq.log
+#chown -R www-data:www-data /tmp/ 
+#chown -R www-data:www-data /var/tmp/ 
 
-grep -riIl '/etc/raspap/hostapd.ini' /var/www/html/ | xargs sed -i "s|/etc/raspap/hostapd.ini|${DIR_RASPAP}/hostapd.ini|g"
-grep -riIl "/etc/dnsmasq.d" /var/www/html/ | xargs sed -i "s|/etc/dnsmasq.d|${DIR}/dnsmasq|g"
+#grep -riIl '/etc/raspap/hostapd.ini' /var/www/html/ | xargs sed -i "s|/etc/raspap/hostapd.ini|${DIR_RASPAP}/hostapd.ini|g"
+#grep -riIl "/etc/dnsmasq.d" /var/www/html/ | xargs sed -i "s|/etc/dnsmasq.d|${DIR}/dnsmasq|g"
 
-echo '' >> "${DIR_RASPAP}/hostapd.ini"
+#echo '' >> "${DIR_RASPAP}/hostapd.ini"
 	
-grep -riIl 'sudo' /var/www/html/ | xargs sed -i "s|sudo||g"
-grep -riIl 'hostname -f' /var/www/html/ | xargs sed -i "s|hostname -f|hostname|g"
-ifconfig wlan0 down
-ifconfig wlan0 up
+#grep -riIl 'sudo' /var/www/html/ | xargs sed -i "s|sudo||g"
+#grep -riIl 'hostname -f' /var/www/html/ | xargs sed -i "s|hostname -f|hostname|g"
+#ifconfig wlan0 down
+#ifconfig wlan0 up
 
  
 if bashio::config.true 'internet'; then
